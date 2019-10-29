@@ -1,6 +1,4 @@
-import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
+import java.util.*;
 
 /*
 	This class represents a clock
@@ -9,23 +7,27 @@ public class Clock extends Observable {
 
 	/*** Attributes ***/
 
-	private List<Observer> observers;
 	private int hour;
 	private int minute;
 	private int second;
-	private updateClockBehavior updateClockBehavior;
+	private UpdateClockBehavior updateClockBehavior;
 
 	/***    Constructors      ***/
 
 	public Clock() {
 	}
 
-	public Clock(List<Observer> observers, int hour, int minute, int second, updateClockBehavior updateClockBehavior) {
-		this.observers = observers;
+	public Clock(UpdateClockBehavior updateClockBehavior) {
+		this.updateClockBehavior = updateClockBehavior;
+		updateClockBehavior.clock = this;
+	}
+
+	public Clock(int hour, int minute, int second, UpdateClockBehavior updateClockBehavior) {
 		this.hour = hour;
 		this.minute = minute;
 		this.second = second;
 		this.updateClockBehavior = updateClockBehavior;
+		updateClockBehavior.clock = this;
 	}
 
 	/***    getters & setters      ***/
@@ -56,13 +58,14 @@ public class Clock extends Observable {
 
 	/***    Methods      ***/
 
-	public updateClockBehavior getUpdateClockBehavior() {
+	public UpdateClockBehavior getUpdateClockBehavior() {
 		return updateClockBehavior;
 	}
 
-	public void setUpdateClockBehavior(updateClockBehavior updateClockBehavior) {
+	public void setUpdateClockBehavior(UpdateClockBehavior updateClockBehavior) {
 		this.updateClockBehavior = updateClockBehavior;
 	}
+
 
 	@Override
 	public synchronized void addObserver(Observer o) {
@@ -98,4 +101,5 @@ public class Clock extends Observable {
 	public synchronized boolean hasChanged() {
 		return super.hasChanged();
 	}
+
 }

@@ -1,9 +1,13 @@
 import java.time.LocalTime;
 
-public class NetworkUpdate implements updateClockBehavior {
+public class NetworkUpdate extends UpdateClockBehavior {
 
     /***    Attributes      ***/
-    private Clock clock;
+
+
+    public NetworkUpdate(Clock clock) {
+        super(clock);
+    }
 
     /***    Methods      ***/
     @Override

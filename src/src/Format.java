@@ -1,5 +1,5 @@
 public interface Format {
 
-	public abstract void display();
+	void display(Clock o);
 
 }

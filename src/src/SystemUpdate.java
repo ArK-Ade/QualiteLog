@@ -1,10 +1,16 @@
 import java.time.LocalTime;
 
-public class SystemUpdate implements updateClockBehavior {
+public class SystemUpdate extends UpdateClockBehavior {
 
     /***    Attributes      ***/
-    private Clock clock;
 
+    public SystemUpdate(Clock clock) {
+        super(clock);
+    }
+
+    public SystemUpdate() {
+        super();
+    }
 
     /***    Methods      ***/
     @Override
