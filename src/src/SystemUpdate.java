@@ -2,8 +2,12 @@ import java.time.LocalTime;
 
 public class SystemUpdate extends UpdateClockBehavior {
 
-    /***    Attributes      ***/
+    /***    Constructors      ***/
 
+    /**
+     * Comfortable constructor
+     * @param clock
+     */
     public SystemUpdate(Clock clock) {
         super(clock);
     }

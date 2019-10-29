@@ -10,8 +10,13 @@ public class FormatFR implements Observer, Format {
 	}
 
 	/***    Methods      ***/
-	public void display(Clock o){
-		System.out.println("Format FR :" + + o.getHour() + "heure : " +o.getMinute()+"minutes"+o.getSecond());
+
+	/**
+	 * This methods permit to show the time with the french format
+	 * @param clock
+	 */
+	public void display(Clock clock){
+		System.out.println("Format FR :" + clock.getHour() + "heure : " +clock.getMinute()+"minutes"+clock.getSecond());
 	}
 
 	@Override

@@ -1,15 +1,30 @@
 import java.util.*;
 
-/*
-	This class represents a clock
+/**
+	This class represents a clock.
  */
 public class Clock extends Observable {
 
 	/*** Attributes ***/
 
+	/**
+	 * Attribute that represent the hour
+	 */
 	private int hour;
+
+	/**
+	 * Attribute that represent the minute
+	 */
 	private int minute;
+
+	/**
+	 * Attribute that represent the second
+	 */
 	private int second;
+
+	/**
+	 * Attribute that represent the strategy use to recover the time
+	 */
 	private UpdateClockBehavior updateClockBehavior;
 
 	/***    Constructors      ***/
@@ -66,7 +81,6 @@ public class Clock extends Observable {
 		this.updateClockBehavior = updateClockBehavior;
 	}
 
-
 	@Override
 	public synchronized void addObserver(Observer o) {
 		super.addObserver(o);
@@ -101,5 +115,4 @@ public class Clock extends Observable {
 	public synchronized boolean hasChanged() {
 		return super.hasChanged();
 	}
-
 }
