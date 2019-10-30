@@ -3,9 +3,6 @@ import com.sun.deploy.security.SelectableSecurityManager;
 import java.util.Observable;
 import java.util.Observer;
 
-//TODO faire en sorte que le format EN soit notifier toutes les minutes
-
-//Peut utiliser un systeme de avec un compteur afin de savoir le temps de raffraischisment
 public class FormatEN implements Format, Observer {
 
 	int compteur = 0;
