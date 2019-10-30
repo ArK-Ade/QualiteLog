@@ -1,8 +1,19 @@
 import java.time.LocalTime;
 
+/**
+ * This strategy represents how you take the time from the pc
+ */
 public class SystemUpdate extends UpdateClockBehavior {
 
     /***    Constructors      ***/
+
+
+    /**
+     * Default constructor
+     */
+    public SystemUpdate() {
+        super();
+    }
 
     /**
      * Comfortable constructor
@@ -10,10 +21,6 @@ public class SystemUpdate extends UpdateClockBehavior {
      */
     public SystemUpdate(Clock clock) {
         super(clock);
-    }
-
-    public SystemUpdate() {
-        super();
     }
 
     /***    Methods      ***/

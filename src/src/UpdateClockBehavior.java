@@ -6,7 +6,7 @@ public abstract class UpdateClockBehavior {
 
 	/***    Attributes      ***/
 
-	Clock clock= null;
+	Clock clock;
 
 	/***    Constructors      ***/
 
@@ -14,7 +14,7 @@ public abstract class UpdateClockBehavior {
 	 * Default constructor
 	 */
 	public UpdateClockBehavior() {
-
+		setClock(null);
 	}
 
 	/**
@@ -26,6 +26,7 @@ public abstract class UpdateClockBehavior {
 	}
 
 	/***    getters & setters      ***/
+
 	public Clock getClock() {
 		return clock;
 	}

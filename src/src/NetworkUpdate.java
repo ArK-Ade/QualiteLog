@@ -1,11 +1,17 @@
 import java.time.LocalTime;
 
 /**
- * This strategy represents how you take the time from the pc
+ * This strategy represents how you take the time from a distant server
  */
 public class NetworkUpdate extends UpdateClockBehavior {
 
     /***    Constructors      ***/
+
+    /**
+     * Default constructor
+     */
+    public NetworkUpdate() {
+    }
 
     /**
      * Comfortable constructor

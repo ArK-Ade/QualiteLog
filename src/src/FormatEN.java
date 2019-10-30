@@ -4,10 +4,25 @@ import java.util.Observable;
 import java.util.Observer;
 
 //TODO faire en sorte que le format EN soit notifier toutes les minutes
+
+//Peut utiliser un systeme de avec un compteur afin de savoir le temps de raffraischisment
 public class FormatEN implements Format, Observer {
 
-    /***    Constructors      ***/
+	int compteur = 0;
 
+	public int getCompteur() {
+		return compteur;
+	}
+
+	public void setCompteur(int compteur) {
+		this.compteur = compteur;
+	}
+
+	/***    Constructors      ***/
+
+	/**
+	 * Default constructor
+	 */
 	public FormatEN(){
 	}
 
@@ -26,7 +41,10 @@ public class FormatEN implements Format, Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		if(o.getClass() == Clock.class)
+		setCompteur(getCompteur()+1);
+		if(o.getClass() == Clock.class && getCompteur()>=60){
 			display((Clock) o);
+			setCompteur(0);
+		}
 	}
 }

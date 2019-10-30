@@ -5,8 +5,10 @@ public class FormatFR implements Observer, Format {
 
 	/***    Constructors      ***/
 
+	/**
+	 * Default constructor
+	 */
 	public FormatFR(){
-
 	}
 
 	/***    Methods      ***/

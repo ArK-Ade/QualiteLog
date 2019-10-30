@@ -1,6 +1,3 @@
-import java.util.HashSet;
-import java.util.Observer;
-
 /**
  * This class is where you launch the program
  */
@@ -10,23 +7,23 @@ public class MainLauncher {
 
         System.out.println("-- Debut du programme --");
 
-        FormatFR format = new FormatFR();
-        FormatEN format2 = new FormatEN();
+        FormatFR fr = new FormatFR();
+        FormatEN en = new FormatEN();
         SystemUpdate system = new SystemUpdate();
 
-        Clock fr = new Clock(system);
-        fr.getUpdateClockBehavior().updateClock();
-        fr.addObserver(format);
-        fr.addObserver(format2);
+        Clock mainClock = new Clock(system);
+        mainClock.getUpdateClockBehavior().updateClock();
+        mainClock.addObserver(fr);
+        mainClock.addObserver(en);
 
         Thread t= new Thread(() -> {
             while(true){
                 try {
                     Thread.sleep(1000); // 1 second
-                    System.out.print("[thread 1] | ");
-                    fr.setChanged();
-                    fr.getUpdateClockBehavior().updateClock();
-                    fr.notifyObservers();
+                    System.out.println("[thread 1] | ");
+                    mainClock.setChanged();
+                    mainClock.getUpdateClockBehavior().updateClock();
+                    mainClock.notifyObservers();
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -34,24 +31,7 @@ public class MainLauncher {
             }
         });
 
-//        Thread t2= new Thread(() -> {
-//            while(true){
-//                try {
-//                    Thread.sleep(1000); // 1 second
-//
-//                    System.out.print("[thread 2] | ");
-//                    fr.setChanged();
-//                    fr.getUpdateClockBehavior().updateClock();
-//                    fr.notifyObservers();
-//
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-
-        //Starting anonymous thread
         t.start();
-//        t2.start();
+
     }
 }
