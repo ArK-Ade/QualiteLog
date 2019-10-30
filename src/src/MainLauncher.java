@@ -20,7 +20,6 @@ public class MainLauncher {
             while(true){
                 try {
                     Thread.sleep(1000); // 1 second
-                    System.out.println("[thread 1] | ");
                     mainClock.setChanged();
                     mainClock.getUpdateClockBehavior().updateClock();
                     mainClock.notifyObservers();
