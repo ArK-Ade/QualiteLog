@@ -71,8 +71,6 @@ public class Clock extends Observable {
 		this.second = second;
 	}
 
-	/***    Methods      ***/
-
 	public UpdateClockBehavior getUpdateClockBehavior() {
 		return updateClockBehavior;
 	}
@@ -80,6 +78,8 @@ public class Clock extends Observable {
 	public void setUpdateClockBehavior(UpdateClockBehavior updateClockBehavior) {
 		this.updateClockBehavior = updateClockBehavior;
 	}
+
+	/***    Methods      ***/
 
 	@Override
 	public synchronized void addObserver(Observer o) {

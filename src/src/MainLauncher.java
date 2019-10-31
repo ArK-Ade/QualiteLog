@@ -7,8 +7,8 @@ public class MainLauncher {
 
         System.out.println("-- Debut du programme --");
 
-        FormatFR fr = new FormatFR();
-        FormatEN en = new FormatEN();
+        FormatFR fr = new FormatFR(10);
+        FormatEN en = new FormatEN(0);
         SystemUpdate system = new SystemUpdate();
 
         Clock mainClock = new Clock(system);
@@ -19,11 +19,10 @@ public class MainLauncher {
         Thread t= new Thread(() -> {
             while(true){
                 try {
-                    Thread.sleep(1000); // 1 second
                     mainClock.setChanged();
                     mainClock.getUpdateClockBehavior().updateClock();
                     mainClock.notifyObservers();
-
+                    Thread.sleep(1000); // 1 second
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -31,6 +30,5 @@ public class MainLauncher {
         });
 
         t.start();
-
     }
 }

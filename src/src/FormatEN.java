@@ -1,19 +1,7 @@
-import com.sun.deploy.security.SelectableSecurityManager;
-
 import java.util.Observable;
 import java.util.Observer;
 
-public class FormatEN implements Format, Observer {
-
-	int compteur = 0;
-
-	public int getCompteur() {
-		return compteur;
-	}
-
-	public void setCompteur(int compteur) {
-		this.compteur = compteur;
-	}
+public class FormatEN extends Format implements Observer {
 
 	/***    Constructors      ***/
 
@@ -21,9 +9,18 @@ public class FormatEN implements Format, Observer {
 	 * Default constructor
 	 */
 	public FormatEN(){
+		super();
 	}
 
-    /***    Methods      ***/
+	/**
+	 * Comfortable constructor
+	 * @param compAnInt
+	 */
+	public FormatEN(int compAnInt) {
+		super(compAnInt);
+	}
+
+	/***    Methods      ***/
 
 	/**
 	 * This methods permit to show the time with the english format
@@ -31,17 +28,17 @@ public class FormatEN implements Format, Observer {
 	 */
 	public void display(Clock clock){
 		if(clock.getHour() <= 12)
-			System.out.println("Format EN :" + clock.getHour() +" AM " + clock.getMinute());
+			System.out.println("Format EN : " + clock.getHour() +" am:" + clock.getMinute() + " " + clock.getSecond());
 		else
-			System.out.println("Format EN :" + clock.getHour() +" PM " + clock.getMinute());
+			System.out.println("Format EN : " + clock.getHour() +" pm:" + clock.getMinute() + " " + clock.getSecond());
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
-		setCompteur(getCompteur()+1);
-		if(o.getClass() == Clock.class && getCompteur()>=60){
+		setCompAnInt(getCompAnInt() + 1);
+		if(o.getClass() == Clock.class && getCompAnInt() >= getCompAnIntMax()){
 			display((Clock) o);
-			setCompteur(0);
+			setCompAnInt(0);
 		}
 	}
 }
