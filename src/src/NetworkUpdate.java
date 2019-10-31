@@ -25,9 +25,6 @@ public class NetworkUpdate extends UpdateClockBehavior {
 
     @Override
     public void updateClock() {
-        LocalTime time = LocalTime.now();
-        clock.setHour(time.getHour());
-        clock.setMinute(time.getMinute());
-        clock.setSecond(time.getSecond());
+
     }
 }

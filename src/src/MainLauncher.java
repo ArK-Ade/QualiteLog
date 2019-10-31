@@ -7,7 +7,7 @@ public class MainLauncher {
 
         System.out.println("-- Debut du programme --");
 
-        FormatFR fr = new FormatFR(10);
+        FormatFR fr = new FormatFR(60);
         FormatEN en = new FormatEN(0);
         SystemUpdate system = new SystemUpdate();
 
